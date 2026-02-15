@@ -1,0 +1,76 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:avaEdit="https://github.com/avaloniaui/avaloniaedit"
+        xmlns:vm="using:ShellScriptor.ViewModels"
+        Width="1200"
+        Height="650"
+        x:Class="ShellScriptor.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="avares://ShellScriptor/Assets/scriptor.ico"
+        Title="Shell Scriptor"
+        Background="{Binding Background}">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+    
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top"
+                    Orientation="Horizontal"
+                    Spacing="20"
+                    Margin="50, 10, 25, 10">
+            <Button Background="Transparent"
+                    BorderThickness="0"
+                    ToolTip.Tip="Open file"
+                    Click="LoadFile">
+                <Image Width="25"
+                       Height="25"
+                       Source="avares://ShellScriptor/Assets/icons8-script-48.png">
+                </Image>
+            </Button>
+            <Button Background="Transparent"
+                    BorderThickness="0"
+                    ToolTip.Tip="Save file"
+                    Click="ExportFile">
+                <Image Width="25"
+                       Height="25"
+                       Source="avares://ShellScriptor/Assets/save.png">
+                </Image>
+            </Button>
+            <Button Background="Transparent"
+                    BorderThickness="0"
+                    ToolTip.Tip="Change font size"
+                    Click="OpenFontSettings">
+                <Image Width="25"
+                       Height="25"
+                       Source="avares://ShellScriptor/Assets/icons8-font-48.png">
+                </Image>
+            </Button>
+            <Button Background="Transparent"
+                    BorderThickness="0"
+                    ToolTip.Tip="Execute"
+                    Margin="890, 0, 0, 0"
+                    Click="Execute">
+                <Image Width="23"
+                       Height="23"
+                       Source="avares://ShellScriptor/Assets/icons8-play-48.png">
+                </Image>
+            </Button>
+        </StackPanel>
+        <avaEdit:TextEditor Document="{Binding Document, Mode=TwoWay}"
+                            Background="{Binding Background}"
+                            FontFamily="Fira Code"
+                            FontSize="{Binding FontSizе}"
+                            HorizontalScrollBarVisibility="Auto"
+                            VerticalScrollBarVisibility="Visible"
+                            ShowLineNumbers="True"
+                            LineNumbersForeground="IndianRed"
+                            LineNumbersMargin="10, 0"
+                            BorderThickness="0,1,0,0"
+                            BorderBrush="IndianRed"
+                            x:Name="Editor">
+        </avaEdit:TextEditor>
+    </DockPanel>
+</Window>

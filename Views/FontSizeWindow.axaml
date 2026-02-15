@@ -1,0 +1,24 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="ShellScriptor.Views.FontSizeWindow"
+        xmlns:vm="using:ShellScriptor.ViewModels"
+        x:DataType="vm:MainWindowViewModel"
+        Title="Change font size"
+        Width="300"
+        Height="90"
+        CanResize="False"
+        Background="{Binding Background}">
+    
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Spacing="10">
+            <Label Content="font size >" FontFamily="Inter" FontSize="16" Margin="0,3,0,0"/>
+            <NumericUpDown Width="130" 
+                           Minimum="1" 
+                           Maximum="50" 
+                           Increment="1"
+                           Value="{Binding FontSizе, Mode=TwoWay}">
+            </NumericUpDown>
+        </StackPanel>
+</Window>
