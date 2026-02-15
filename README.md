@@ -1,0 +1,1 @@
+The ShellScriptor is special text editor for writing, editing and executing shell scrips on a Linux machines. It works with the default terminal of the machine for executing, and the supported terminals are gnome-terminal, xfce4-terminal, xterm, konsole and kitty.
