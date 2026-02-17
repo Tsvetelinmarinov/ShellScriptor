@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+
+<SyntaxDefinition name="ShellScript"
+                  xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
+
+      <Color name="Shebang" foreground="Pink"/>
+      <Color name="Comment" foreground="Green"/>
+      <Color name="Command" foreground="#BD93F9"/>
+      <Color name="Keyword" foreground="#569CD6"/>
+      <Color name="Variable" foreground="#FF79C6"/>
+      <Color name="String" foreground="IndianRed"/>
+      <Color name="NewLine" foreground="Brown"/>
+      <Color name="Number" foreground="Pink"/>
+      <Color name="Operator" foreground="#569CD6"/>
+      <Color name="Flag" foreground="#B5CEA8"/>
+      
+      <RuleSet>
+            <Span color="Shebang" begin="#!"/>
+            <Span color="Comment" begin="#"/>
+            <Span color="String">
+                    <Begin>"</Begin>
+                    <End>"</End>
+                    <RuleSet>
+                            <Rule color="Variable">
+                                    \$[a-zA-Z0-9\-_]+
+                            </Rule>
+                            <Rule color="NewLine">
+                                    \\n+
+                            </Rule>
+                    </RuleSet>
+            </Span>
+            
+            <Rule color="Flag">(?&lt;=^|\s)-{1,2}[a-zA-Z0-9\-_\=]+</Rule>
+            <Rule color="Variable">\b$[a-zA-Z0-9_\-]+</Rule>
+            <Rule color="Number">
+                    \b0[xX][0-9a-fA-F]+|\b(\d+(\.[0-9]+)?|\.[0-9]+)
+            </Rule>
+            <Rule color="Keyword">[\[\]]</Rule>
+            <Rule color="Operator">
+                    (&amp;&amp;|\|\||==|!=|&gt;=|&lt;=|&gt;&gt;|&lt;&lt;|[\+\-\=&gt;&lt;&amp;\|~*%/])
+            </Rule>
+            
+            <Keywords color="Keyword">
+                    <Word>if</Word>
+                    <Word>then</Word>
+                    <Word>else</Word>
+                    <Word>elif</Word>
+                    <Word>fi</Word>
+                    <Word>for</Word>
+                    <Word>while</Word>
+                    <Word>until</Word>
+                    <Word>do</Word>
+                    <Word>done</Word>
+                    <Word>case</Word>
+                    <Word>in</Word>
+                    <Word>esac</Word>
+                    <Word>select</Word>
+                    <Word>function</Word>
+                    <Word>return</Word>
+                    <Word>break</Word>
+                    <Word>continue</Word>
+                    <Word>read</Word>
+                    <Word>exit</Word>
+                    <Word>export</Word>
+                    <Word>alias</Word>
+                    <Word>source</Word>
+                    <Word>local</Word>
+                    <Word>readonly</Word>
+                    <Word>shift</Word>
+                    <Word>test</Word>
+                    <Word>eval</Word>
+                    <Word>exec</Word>
+            </Keywords>           
+                     
+            <Keywords color="Command">
+                    <Word>pwd</Word>
+                    <Word>ls</Word>
+                    <Word>cd</Word>
+                    <Word>mkdir</Word>
+                    <Word>rmdir</Word>
+                    <Word>touch</Word>
+                    <Word>cp</Word>
+                    <Word>mv</Word>
+                    <Word>rm</Word>
+                    <Word>ln</Word>
+                    <Word>find</Word>
+                    <Word>locate</Word>
+                    <Word>cat</Word>
+                    <Word>grep</Word>
+                    <Word>awk</Word>
+                    <Word>sed</Word>
+                    <Word>echo</Word>
+                    <Word>printf</Word>
+                    <Word>head</Word>
+                    <Word>tail</Word>
+                    <Word>sort</Word>
+                    <Word>uniq</Word>
+                    <Word>wc</Word>
+                    <Word>cut</Word>
+                    <Word>tr</Word>
+                    <Word>tee</Word>
+                    <Word>less</Word>
+                    <Word>more</Word>
+                    <Word>sudo</Word>
+                    <Word>su</Word>
+                    <Word>chmod</Word>
+                    <Word>chown</Word>
+                    <Word>chgrp</Word>
+                    <Word>umask</Word>
+                    <Word>ps</Word>
+                    <Word>top</Word>
+                    <Word>htop</Word>
+                    <Word>kill</Word>
+                    <Word>pkill</Word>
+                    <Word>killall</Word>
+                    <Word>jobs</Word>
+                    <Word>bg</Word>
+                    <Word>fg</Word>
+                    <Word>df</Word>
+                    <Word>du</Word>
+                    <Word>free</Word>
+                    <Word>uptime</Word>
+                    <Word>uname</Word>
+                    <Word>dmesg</Word>
+                    <Word>journalctl</Word>
+                    <Word>systemctl</Word>
+                    <Word>crontab</Word>
+                    <Word>ping</Word>
+                    <Word>curl</Word>
+                    <Word>wget</Word>
+                    <Word>ssh</Word>
+                    <Word>scp</Word>
+                    <Word>rsync</Word>
+                    <Word>ip</Word>
+                    <Word>ifconfig</Word>
+                    <Word>netstat</Word>
+                    <Word>ss</Word>
+                    <Word>dig</Word>
+                    <Word>nslookup</Word>
+                    <Word>host</Word>
+                    <Word>traceroute</Word>
+                    <Word>apt</Word>
+                    <Word>yum</Word>
+                    <Word>dnf</Word>
+                    <Word>pacman</Word>
+                    <Word>tar</Word>
+                    <Word>gzip</Word>
+                    <Word>gunzip</Word>
+                    <Word>zip</Word>
+                    <Word>unzip</Word>
+            </Keywords>                
+      </RuleSet>     
+</SyntaxDefinition>

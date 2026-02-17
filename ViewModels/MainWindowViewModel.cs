@@ -13,7 +13,7 @@ public partial class MainWindowViewModel : ViewModelBase
     #region Properties
     
     //Default dark mode background color.
-    public static IBrush Background => Brush.Parse("#FF1A191C");
+    public static IBrush Background => Brush.Parse("#FF191A1C");
     
     // This property makes the connection between MainWindow.TextEditor and this class(model).
     public TextDocument? Document { get; set; } = new();

@@ -6,10 +6,14 @@ using System.Net.Mime;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Interactivity;
+using Avalonia.Platform;
 using Avalonia.Platform.Storage;
+using AvaloniaEdit.Highlighting;
+using AvaloniaEdit.Highlighting.Xshd;
 using ShellScriptor.ViewModels;
 
 namespace ShellScriptor.Views;
@@ -19,6 +23,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        this.LoadSyntaxHighlighting();
     }
     
     
@@ -182,6 +187,19 @@ public partial class MainWindow : Window
         };
         
         fontWind.Show();
+    }
+
+    private void LoadSyntaxHighlighting()
+    {
+        using var syntaxFileStream 
+            = AssetLoader.Open(new Uri("avares://ShellScriptor/SyntaxHighlighting/shellScript.xshd"));
+
+        using var xmlReader = XmlReader.Create(syntaxFileStream);
+        
+        var syntaxDef 
+            = HighlightingLoader.Load(xmlReader, HighlightingManager.Instance);
+
+        this.Editor.SyntaxHighlighting = syntaxDef;
     }
     
     #endregion 

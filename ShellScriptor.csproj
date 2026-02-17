@@ -10,6 +10,8 @@
     <ItemGroup>
         <Folder Include="Models\"/>
         <AvaloniaResource Include="Assets\**"/>
+        <None Remove="SyntaxHighlighting\shellScript.xshd" />
+        <AvaloniaResource Include="SyntaxHighlighting\shellScript.xshd" />
     </ItemGroup>
 
     <ItemGroup>
