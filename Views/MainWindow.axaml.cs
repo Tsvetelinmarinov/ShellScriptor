@@ -81,12 +81,12 @@ public partial class MainWindow : Window
                 ]
             });
 
-            if (file != null)
-            {
-                await using var fileStream = await file.OpenWriteAsync();
-                var writer = new StreamWriter(fileStream, Encoding.UTF8);
-                await writer.WriteAsync(this.Editor.Document!.Text);
-            }
+            if (file == null) return;
+            
+            await using var fileStream = await file.OpenWriteAsync();
+            var writer = new StreamWriter(fileStream, Encoding.UTF8);
+            await writer.WriteAsync(this.Editor.Document!.Text);
+            await writer.FlushAsync();
         }
         catch (Exception e)
         {
