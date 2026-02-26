@@ -11,18 +11,66 @@
       <Color name="String" foreground="IndianRed"/>
       <Color name="NewLine" foreground="Brown"/>
       <Color name="Number" foreground="Pink"/>
-      <Color name="Operator" foreground="#569CD6"/>
+      <Color name="Operator" foreground="#569CD6" fontWeight="bold"/>
       <Color name="Flag" foreground="#B5CEA8"/>
+      <Color name="Expression" foreground="Yellow"/>
+      <Color name="Method" foreground="#FF90C4"/>
+      <Color name="Braces" foreground="Orange" fontWeight="bold"/>
       
       <RuleSet>
-            <Span color="Shebang" begin="#!"/>
+            <Span color="Shebang" begin="#!"/>   
             <Span color="Comment" begin="#"/>
+            
+            <Span color="Expression">
+                <Begin>\$\(\(</Begin>
+                <End>\)\)</End>
+                <RuleSet>
+                      <Rule color="Variable">
+                           \$[a-zA-Z0-9_\#]+
+                      </Rule>
+                      <Span color="String">
+                          <Begin>"</Begin>
+                          <End>"</End>
+                          <RuleSet>
+                              <Rule color="Variable">
+                                   \$[a-zA-Z0-9_\#]+
+                              </Rule>
+                              <Rule color="NewLine">
+                                  \\n+
+                              </Rule>
+                          </RuleSet>
+                      </Span>
+                </RuleSet>
+            </Span>
+            
+            <Span color="Expression">
+                <Begin>\$\(</Begin>
+                <End>\)</End>
+                <RuleSet>
+                    <Rule color="Variable">
+                        \$[a-zA-Z0-9_\#]+
+                    </Rule>
+                    <Span color="String">
+                         <Begin>"</Begin>
+                         <End>"</End>
+                         <RuleSet>
+                              <Rule color="Variable">
+                                    \$[a-zA-Z0-9_\#]+
+                              </Rule>
+                              <Rule color="NewLine">
+                                   \\n+
+                              </Rule>
+                         </RuleSet>
+                    </Span>
+                </RuleSet>
+            </Span>                  
+            
             <Span color="String">
                     <Begin>"</Begin>
                     <End>"</End>
                     <RuleSet>
                             <Rule color="Variable">
-                                    \$[a-zA-Z0-9\-_]+
+                                    \$[a-zA-Z0-9_\#]+
                             </Rule>
                             <Rule color="NewLine">
                                     \\n+
@@ -30,16 +78,26 @@
                     </RuleSet>
             </Span>
             
+            <Rule color="Variable">\$[a-zA-Z0-9_\#]+</Rule>
+            
             <Rule color="Flag">(?&lt;=^|\s)-{1,2}[a-zA-Z0-9\-_\=]+</Rule>
-            <Rule color="Variable">\b$[a-zA-Z0-9_\-]+</Rule>
+            
             <Rule color="Number">
-                    \b0[xX][0-9a-fA-F]+|\b(\d+(\.[0-9]+)?|\.[0-9]+)
+                    b0[xX][0-9a-fA-F]+|(?&lt;![a-zA-Z0-9.])(?&lt;!\.)(\d+(\.[0-9]+)?|\.[0-9]+)\b
             </Rule>
+            
             <Rule color="Keyword">[\[\]]</Rule>
+            
             <Rule color="Operator">
                     (&amp;&amp;|\|\||==|!=|&gt;=|&lt;=|&gt;&gt;|&lt;&lt;|[\+\-\=&gt;&lt;&amp;\|~*%/])
             </Rule>
             
+            <Rule color="Method">
+                    \b(function\s+)?([a-zA-Z_][a-zA-Z0-9_]*)(?=\s*\(\))
+            </Rule>   
+            
+            <Rule color="Braces">\(|\)|\{|\}</Rule>                
+                     
             <Keywords color="Keyword">
                     <Word>if</Word>
                     <Word>then</Word>
@@ -58,8 +116,7 @@
                     <Word>function</Word>
                     <Word>return</Word>
                     <Word>break</Word>
-                    <Word>continue</Word>
-                    <Word>read</Word>
+                    <Word>continue</Word>                   
                     <Word>exit</Word>
                     <Word>export</Word>
                     <Word>alias</Word>
@@ -78,6 +135,7 @@
                     <Word>cd</Word>
                     <Word>mkdir</Word>
                     <Word>rmdir</Word>
+                    <Word>read</Word>
                     <Word>touch</Word>
                     <Word>cp</Word>
                     <Word>mv</Word>
@@ -148,6 +206,13 @@
                     <Word>gunzip</Word>
                     <Word>zip</Word>
                     <Word>unzip</Word>
+                    <Word>clean</Word>
+                    <Word>autoclean</Word>
+                    <Word>update</Word>
+                    <Word>autoremove</Word>
+                    <Word>upgrade</Word>
+                    <Word>sleep</Word>
+                    <Word>sysclean</Word>
             </Keywords>                
       </RuleSet>     
 </SyntaxDefinition>

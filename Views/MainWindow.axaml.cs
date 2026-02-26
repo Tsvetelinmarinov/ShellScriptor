@@ -2,19 +2,15 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Net.Mime;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 using Avalonia.Controls;
-using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Interactivity;
 using Avalonia.Platform;
 using Avalonia.Platform.Storage;
 using AvaloniaEdit.Highlighting;
 using AvaloniaEdit.Highlighting.Xshd;
-using ShellScriptor.ViewModels;
 
 namespace ShellScriptor.Views;
 
@@ -39,14 +35,7 @@ public partial class MainWindow : Window
             var files = await dialog.OpenFilePickerAsync(
                 new FilePickerOpenOptions
                 {
-                    AllowMultiple = false,
-                    FileTypeFilter =
-                    [
-                        new FilePickerFileType("All files")
-                        {
-                            Patterns = ["*.*"]
-                        }
-                    ]
+                    AllowMultiple = false
                 }
             );
 
@@ -71,14 +60,7 @@ public partial class MainWindow : Window
             var file = await fileSaver.SaveFilePickerAsync(new FilePickerSaveOptions
             {
                 Title = "File saver",
-                SuggestedFileName = "unknown_shell",
-                FileTypeChoices = 
-                [
-                    new FilePickerFileType("All files")
-                    {
-                        Patterns = [ "*.*" ]
-                    }
-                ]
+                SuggestedFileName = "unknown",
             });
 
             if (file == null) return;

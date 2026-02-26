@@ -8,7 +8,9 @@
         x:DataType="vm:MainWindowViewModel"
         Icon="avares://ShellScriptor/Assets/scriptor.ico"
         Title="Shell Scriptor"
-        Background="{Binding Background}">
+        Background="{Binding Background}"
+        CanMaximize="False"
+        CanResize="False">
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
@@ -51,8 +53,9 @@
             <Button Background="Transparent"
                     BorderThickness="0"
                     ToolTip.Tip="Execute"
-                    Margin="890, 0, 0, 0"
-                    Click="Execute">
+                    Margin="900, 0, 0, 0"
+                    Click="Execute"
+                    DockPanel.Dock="Right">
                 <Image Width="23"
                        Height="23"
                        Source="avares://ShellScriptor/Assets/icons8-play-48.png">
@@ -62,6 +65,7 @@
         <avaEdit:TextEditor Document="{Binding Document, Mode=TwoWay}"
                             Background="{Binding Background}"
                             FontFamily="Fira Code"
+                            Foreground="NavajoWhite"
                             FontSize="{Binding FontSizе}"
                             HorizontalScrollBarVisibility="Auto"
                             VerticalScrollBarVisibility="Visible"
