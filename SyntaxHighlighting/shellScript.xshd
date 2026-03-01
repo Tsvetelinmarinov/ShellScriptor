@@ -198,6 +198,7 @@
                     <Word>host</Word>
                     <Word>traceroute</Word>
                     <Word>apt</Word>
+                    <Word>apt-get</Word>
                     <Word>yum</Word>
                     <Word>dnf</Word>
                     <Word>pacman</Word>
