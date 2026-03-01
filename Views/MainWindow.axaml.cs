@@ -88,7 +88,7 @@ public partial class MainWindow : Window
         var runningShell = Path.Combine(
             Path.GetTempPath(),
             "ShellScriptor",
-            ".SS_running_shell.ssdata"
+            ".SS_Running_Shell.ssdata"
         );
 
         if (!Directory.Exists(Path.GetDirectoryName(runningShell)))
@@ -108,11 +108,11 @@ public partial class MainWindow : Window
 
         var terminals = new[]
         {
-            new { Name = "kitty", Args = "" },
-            new { Name = "alacritty", Args = "" },
-            new { Name = "xterm", Args = "" },
-            new { Name = "xfce4-terminal", Args = "" },
-            new { Name = "konsole", Args = "" },
+            new { Name = "kitty", Args = $"-e {runningShell}" },
+            new { Name = "alacritty", Args = $"-e {runningShell}" },
+            new { Name = "xterm", Args = $"-e {runningShell}" },
+            new { Name = "xfce4-terminal", Args = $"-e {runningShell}" },
+            new { Name = "konsole", Args = $"-e {runningShell}" },
             new { Name = "gnome-terminal", Args = $"-- bash -c \"{runningShell}; exec bash\"" }
         };
 
