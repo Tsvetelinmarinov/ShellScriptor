@@ -80,7 +80,12 @@ public partial class MainWindow : Window
     // Supported terminals are gnome-terminal, xfce4-terminal, xterm, kitty and alacritty
     public void Execute(object? sender, RoutedEventArgs args)
     {
-        if (!RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+        // Initialize the OS check result(to a variable) to simplify
+        // the conditional statement syntax.
+        var isNotUnixBased = !RuntimeInformation.IsOSPlatform(OSPlatform.Linux)
+                          || !RuntimeInformation.IsOSPlatform(OSPlatform.OSX);
+        
+        if (isNotUnixBased)
         {
             return;
         }
@@ -103,9 +108,12 @@ public partial class MainWindow : Window
         
         File.WriteAllText(runningShell, this.Editor.Document!.Text);
         
-        Process.Start("chmod", $"+x {runningShell}")
+        Process
+            .Start("chmod", $"+x {runningShell}")
             .WaitForExit();
 
+        // The six different terminals are represented on level "code" as
+        // anonymous objects(in anonymous array) with two properties: Name and starting arguments.
         var terminals = new[]
         {
             new { Name = "kitty", Args = $"-e {runningShell}" },

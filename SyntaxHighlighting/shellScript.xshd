@@ -3,16 +3,16 @@
 <SyntaxDefinition name="ShellScript"
                   xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
 
-      <Color name="Shebang" foreground="Pink"/>
+      <Color name="Shebang" foreground="#718C00"/>
       <Color name="Comment" foreground="Green"/>
-      <Color name="Command" foreground="#BD93F9"/>
-      <Color name="Keyword" foreground="#569CD6"/>
+      <Color name="Command" foreground="#4271AE"/>
+      <Color name="Keyword" foreground="#8959A8"/>
       <Color name="Variable" foreground="#FF79C6"/>
       <Color name="String" foreground="IndianRed"/>
       <Color name="NewLine" foreground="Brown"/>
-      <Color name="Number" foreground="Pink"/>
-      <Color name="Operator" foreground="#569CD6" fontWeight="bold"/>
-      <Color name="Flag" foreground="#B5CEA8"/>
+      <Color name="Number" foreground="#F5871F"/>
+      <Color name="Operator" foreground="#3E999F" fontWeight="bold"/>
+      <Color name="Flag" foreground="#C82829"/>
       <Color name="Expression" foreground="Yellow"/>
       <Color name="Method" foreground="#FF90C4"/>
       <Color name="Braces" foreground="Orange" fontWeight="bold"/>
