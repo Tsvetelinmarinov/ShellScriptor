@@ -6,6 +6,7 @@
         Height="650"
         x:Class="ShellScriptor.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
+        Background="{Binding Background}"
         Icon="avares://ShellScriptor/Assets/scriptor.ico"
         Title="Shell Scriptor"
         CanMaximize="False"
@@ -62,9 +63,9 @@
             </Button>
         </StackPanel>
         <avaEdit:TextEditor Document="{Binding Document, Mode=TwoWay}"
-                            Background="White"
+                            Background="{Binding Background}"
                             FontFamily="Fira Code"
-                            Foreground="DarkSlateGray"
+                            Foreground="GhostWhite"
                             FontSize="{Binding FontSizе}"
                             HorizontalScrollBarVisibility="Auto"
                             VerticalScrollBarVisibility="Visible"
