@@ -94,6 +94,7 @@ public partial class MainWindow : Window
             Path.GetTempPath(),
             "ShellScriptor",
             ".SS_Running_Shell.ssdata"
+            
         );
 
         if (!Directory.Exists(Path.GetDirectoryName(runningShell)))
@@ -113,7 +114,7 @@ public partial class MainWindow : Window
             .WaitForExit();
 
         // The six different terminals are represented on level "code" as
-        // anonymous objects(in anonymous array) with two properties: Name and starting arguments.
+        // anonymous objects(in anonymous array) with two properties: name and starting arguments.
         var terminals = new[]
         {
             new { Name = "kitty", Args = $"-e {runningShell}" },

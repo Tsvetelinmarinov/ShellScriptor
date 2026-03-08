@@ -18,22 +18,26 @@
       <Color name="Braces" foreground="Orange" fontWeight="bold"/>
       
       <RuleSet>
+            <Rule color="Variable">\$[a-zA-Z0-9_\#]*</Rule>
+            <Rule color="Variable">\$</Rule>
+          
             <Span color="Shebang" begin="#!"/>   
-            <Span color="Comment" begin="#"/>
+            
+            <Rule color="Comment">\#[\s\S]+</Rule>
             
             <Span color="Expression">
                 <Begin>\$\(\(</Begin>
                 <End>\)\)</End>
                 <RuleSet>
                       <Rule color="Variable">
-                           \$[a-zA-Z0-9_\#]+
+                           \$[a-zA-Z0-9_\#]*
                       </Rule>
                       <Span color="String">
                           <Begin>"</Begin>
                           <End>"</End>
                           <RuleSet>
                               <Rule color="Variable">
-                                   \$[a-zA-Z0-9_\#]+
+                                   \$[a-zA-Z0-9_\#]*
                               </Rule>
                               <Rule color="NewLine">
                                   \\n+
@@ -48,14 +52,14 @@
                 <End>\)</End>
                 <RuleSet>
                     <Rule color="Variable">
-                        \$[a-zA-Z0-9_\#]+
+                        \$[a-zA-Z0-9_\#]*
                     </Rule>
                     <Span color="String">
                          <Begin>"</Begin>
                          <End>"</End>
                          <RuleSet>
                               <Rule color="Variable">
-                                    \$[a-zA-Z0-9_\#]+
+                                    \$[a-zA-Z0-9_\#]*
                               </Rule>
                               <Rule color="NewLine">
                                    \\n+
@@ -64,21 +68,15 @@
                     </Span>
                 </RuleSet>
             </Span>                  
-            
+                       
             <Span color="String">
                     <Begin>"</Begin>
                     <End>"</End>
                     <RuleSet>
-                            <Rule color="Variable">
-                                    \$[a-zA-Z0-9_\#]+
-                            </Rule>
-                            <Rule color="NewLine">
-                                    \\n+
-                            </Rule>
+                            <Rule color="Variable">\$[a-zA-Z0-9_\#]*</Rule>
+                            <Rule color="NewLine">\\n+</Rule>
                     </RuleSet>
-            </Span>
-            
-            <Rule color="Variable">\$[a-zA-Z0-9_\#]+</Rule>
+            </Span>        
             
             <Rule color="Flag">(?&lt;=^|\s)-{1,2}[a-zA-Z0-9\-_\=]+</Rule>
             
