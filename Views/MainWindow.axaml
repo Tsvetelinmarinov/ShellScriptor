@@ -78,7 +78,7 @@
                        Source="avares://ShellScriptor/Assets/icons8-font-48.png">
                 </Image>
             </Button>
-            <Rectangle Width="1"
+            <Rectangle Width="2"
                        Height="20"
                        Fill="DarkSlateBlue">
             </Rectangle>
