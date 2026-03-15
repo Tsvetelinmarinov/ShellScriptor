@@ -80,16 +80,6 @@ public partial class MainWindow : Window
     // Supported terminals are gnome-terminal, xfce4-terminal, xterm, kitty and alacritty
     public void Execute(object? sender, RoutedEventArgs args)
     {
-        // Initialize the OS check result(to a variable) to simplify
-        // the conditional statement syntax.
-        var isNotUnixBased = !RuntimeInformation.IsOSPlatform(OSPlatform.Linux)
-                          || !RuntimeInformation.IsOSPlatform(OSPlatform.OSX);
-        
-        if (isNotUnixBased)
-        {
-            return;
-        }
-        
         var runningShell = Path.Combine(
             Path.GetTempPath(),
             "ShellScriptor",
