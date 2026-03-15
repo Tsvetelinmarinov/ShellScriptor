@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Xml;
 using Avalonia.Controls;
+using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Platform;
 using Avalonia.Platform.Storage;
@@ -181,6 +182,18 @@ public partial class MainWindow : Window
             = HighlightingLoader.Load(xmlReader, HighlightingManager.Instance);
 
         this.Editor.SyntaxHighlighting = syntaxDef;
+    }
+    
+    // Switches to fullscreen or normal window state
+    public void F11KeyPressed(object? sender, KeyEventArgs args)
+    {
+        if (args.Key != Key.F11)
+        {
+            return;
+        }
+
+        this.WindowState = this.WindowState == WindowState.Normal 
+                ? WindowState.FullScreen : WindowState.Normal;
     }
     
     #endregion 

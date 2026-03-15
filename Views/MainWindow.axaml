@@ -8,7 +8,8 @@
         x:DataType="vm:MainWindowViewModel"
         Background="{Binding Background}"
         Icon="avares://ShellScriptor/Assets/scriptor.ico"
-        Title="Shell Scriptor">
+        Title="Shell Scriptor"
+        KeyDown="F11KeyPressed">
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
