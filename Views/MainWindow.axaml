@@ -8,9 +8,7 @@
         x:DataType="vm:MainWindowViewModel"
         Background="{Binding Background}"
         Icon="avares://ShellScriptor/Assets/scriptor.ico"
-        Title="Shell Scriptor"
-        CanMaximize="False"
-        CanResize="False">
+        Title="Shell Scriptor">
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
@@ -18,15 +16,43 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
     
+    <Window.Styles>
+        <Style Selector="Button.icon-btn">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition Property="Opacity" Duration="0:0:0.5"/>
+                    <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.5"/>
+                </Transitions>
+            </Setter>
+            <Setter Property="Opacity" Value="0.7"/>
+        </Style>
+        
+        <Style Selector="Button.icon-btn:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Opacity" Value="1.2"/>
+            <Setter Property="RenderTransform" Value="scale(1.1)"/>
+        </Style>
+        
+        <Style Selector="Button.icon-btn:pressed">
+            <Setter Property="Opacity" Value="0.5"/>
+            <Setter Property="RenderTransform" Value="scale(0.5)"/>
+        </Style>
+        
+        <Style Selector="Button.icon-btn">
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+    </Window.Styles>
+    
     <DockPanel>
         <StackPanel DockPanel.Dock="Top"
-                    Orientation="Horizontal"
                     Spacing="20"
-                    Margin="50, 10, 25, 10">
+                    Margin="50, 10, 25, 10"
+                    Orientation="Horizontal">
             <Button Background="Transparent"
                     BorderThickness="0"
                     ToolTip.Tip="Open file"
-                    Click="LoadFile">
+                    Click="LoadFile"
+                    Classes="icon-btn">
                 <Image Width="25"
                        Height="25"
                        Source="avares://ShellScriptor/Assets/icons8-script-48.png">
@@ -35,7 +61,8 @@
             <Button Background="Transparent"
                     BorderThickness="0"
                     ToolTip.Tip="Save file"
-                    Click="ExportFile">
+                    Click="ExportFile"
+                    Classes="icon-btn">
                 <Image Width="25"
                        Height="25"
                        Source="avares://ShellScriptor/Assets/save.png">
@@ -44,18 +71,22 @@
             <Button Background="Transparent"
                     BorderThickness="0"
                     ToolTip.Tip="Change font size"
-                    Click="OpenFontSettings">
+                    Click="OpenFontSettings"
+                    Classes="icon-btn">
                 <Image Width="25"
                        Height="25"
                        Source="avares://ShellScriptor/Assets/icons8-font-48.png">
                 </Image>
             </Button>
+            <Rectangle Width="1"
+                       Height="20"
+                       Fill="DarkSlateBlue">
+            </Rectangle>
             <Button Background="Transparent"
                     BorderThickness="0"
                     ToolTip.Tip="Execute"
-                    Margin="900, 0, 0, 0"
                     Click="Execute"
-                    DockPanel.Dock="Right">
+                    Classes="icon-btn execute-btn">
                 <Image Width="23"
                        Height="23"
                        Source="avares://ShellScriptor/Assets/icons8-play-48.png">
