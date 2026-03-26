@@ -96,7 +96,7 @@
         </StackPanel>
         <avaEdit:TextEditor Document="{Binding Document, Mode=TwoWay}"
                             Background="{Binding Background}"
-                            FontFamily="Fira Code"
+                            FontFamily="Ubuntu Mono"
                             Foreground="GhostWhite"
                             FontSize="{Binding FontSizе}"
                             HorizontalScrollBarVisibility="Auto"
