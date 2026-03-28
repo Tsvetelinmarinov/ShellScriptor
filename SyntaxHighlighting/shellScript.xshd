@@ -12,7 +12,7 @@
       <Color name="NewLine" foreground="Brown"/>
       <Color name="Number" foreground="Pink"/>
       <Color name="Operator" foreground="#3E999F" fontWeight="bold"/>
-      <Color name="Flag" foreground="#FFB86C"/>
+      <Color name="Flag" foreground="#3E999F" fontWeight="bold"/>
       <Color name="Expression" foreground="Yellow"/>
       <Color name="Method" foreground="#AF5FD7"/>
       <Color name="Braces" foreground="Orange" fontWeight="bold"/>

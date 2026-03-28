@@ -22,6 +22,7 @@
                            Minimum="1" 
                            Maximum="50" 
                            Increment="1"
+                           Margin="0,2,0,0"
                            Value="{Binding FontSizе, Mode=TwoWay}">
             </NumericUpDown>
         </StackPanel>
