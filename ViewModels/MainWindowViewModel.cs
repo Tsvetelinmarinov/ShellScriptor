@@ -50,6 +50,7 @@ public partial class MainWindowViewModel : ViewModelBase
         }
 
         var json = JsonSerializer.Serialize(new FontSizeService { FontSize = this.FontSizе });
+
         File.WriteAllText(
             Path.Combine(appData, appDir, jsonName),
             json
@@ -70,8 +71,6 @@ public partial class MainWindowViewModel : ViewModelBase
 
         var json = File.ReadAllText(Path.Combine(appData, appDir, jsonName));
         
-        return JsonSerializer
-                   .Deserialize<FontSizeService>(json)
-                    ?? new FontSizeService();
+        return JsonSerializer.Deserialize<FontSizeService>(json) ?? new FontSizeService();
     }
 }

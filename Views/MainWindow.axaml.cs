@@ -81,6 +81,11 @@ public partial class MainWindow : Window
     // Supported terminals are gnome-terminal, xfce4-terminal, xterm, kitty and alacritty
     public void Execute(object? sender, RoutedEventArgs args)
     {
+        if (!RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+        {
+            throw new Exception("Unsupported OS platform!");
+        }
+
         var runningShell = Path.Combine(
             Path.GetTempPath(),
             "ShellScriptor",
